@@ -58,7 +58,7 @@ public class CountryController
         List<Country> myList = new ArrayList<>();
         countrepos.findAll().iterator().forEachRemaining(myList::add);
 
-        List<Country> rtnList = findCountry(myList, c -> c.getName().charAt(0) == letter);
+        List<Country> rtnList = findCountry(myList, c -> c.getName().toLowerCase().charAt(0) == letter);
 
 
         return new ResponseEntity<>(rtnList, HttpStatus.OK);
